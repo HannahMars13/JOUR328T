@@ -3,15 +3,17 @@ var ctx = document.getElementById('myChart').getContext('2d');
           type: 'polarArea',
           data: {
             labels: [
-              'Red',
-              'Green',
-              'Yellow',
-              'Grey',
-              'Blue'
+              'Paid work',
+              'Education',
+              'Housework',
+              'Shopping',
+              'Sleeping',
+              'Eating and drinking',
+              'Seeing friends'
             ],
             datasets: [{
-              label: 'My First Dataset',
-              data: [11, 16, 7, 3, 14],
+              label: 'Minutes per day',
+              data: [315, 25, 103, 20, 542, 100, 2, 23],
               backgroundColor: [
                 'rgb(255, 99, 132)',
                 'rgb(75, 192, 192)',
@@ -29,7 +31,7 @@ var ctx = document.getElementById('myChart').getContext('2d');
               },
               title: {
                 display: true,
-                text: 'Chart.js Polar Area Chart'
+                text: 'How to people in China use their time?'
               }
             }
           }
