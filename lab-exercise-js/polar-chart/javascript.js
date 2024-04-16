@@ -13,7 +13,7 @@ var ctx = document.getElementById('myChart').getContext('2d');
             ],
             datasets: [{
               label: 'Minutes per day',
-              data: [315, 25, 103, 20, 542, 100, 2, 23],
+              data: [315, 25, 103, 20, 542, 100, 23],
               backgroundColor: [
                 'rgb(255, 99, 132)',
                 'rgb(75, 192, 192)',
