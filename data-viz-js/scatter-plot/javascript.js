@@ -2,8 +2,16 @@ var ctx = document.getElementById('myChart').getContext('2d');
 var myChart = new Chart(ctx, {
     type: 'scatter',
     data: {
+       labels: ['Blinding Lights','Shape of You','Someone You Loved','Dance Monkey','Sunflower - Spider-Man: Into the Spider-Verse',
+       'One Dance','STAY (with Justin Bieber)','Believer','Closer','Starboy','Perfect','Heat Waves','As It Was','Seniorita',
+       'Say You Won\'t Let Go','lovely - Bonus Track','Watermelon Sugar','Don\'t Start Now','Lucid Dreams','Sweater Weather',
+       'Thinking Out Loud','Photograph','Something Just Like This','Bohemian Rhapsody - Remastered 2011','Shallow','Take Me To Church',
+       'Circles','Love Yourself','All of Me','Counting Stars','Riptide','Wake Me Up - Radio Edit','Can\'t Hold Us (feat. Ray Dalton)',
+       'The Hills','HUMBLE.','One Kiss (with Dua Lipa)','good 4 u','drivers license','Demons','Lose Yourself - Soundtrack Version',
+       'INDUSTRY BABY (feat. Jack Harlow)','Another Love','Mr. Brightside','Levitating (feat. DaBaby)','No Role Modelz','Do I Wanna Know?',
+       'Dakiti','Memories','Yellow','MONTERO (Call Me By Your Name)'],
         datasets: [{
-            label: 'Songs',
+            label: 'Song',
             data: [
                 {x: 2019.833333, y: 3703895074},
                 {x: 2017, y: 3562543890},
@@ -56,8 +64,8 @@ var myChart = new Chart(ctx, {
                 {x: 1999, y: 1755214421},
                 {x: 2020.666667, y: 1735441776}
               ],
-            backgroundColor: 'rgba(75, 192, 192, 1)', // Green color
-            borderColor: 'rgba(75, 192, 192, 1)',
+            backgroundColor: '#1DB954',
+            borderColor: '#1DB954',
             borderWidth: 1
         }]
     },
@@ -65,11 +73,19 @@ var myChart = new Chart(ctx, {
         scales: {
             x: {
                 type: 'linear',
-                position: 'bottom'
+                position: 'bottom',
+                title: {
+                  display: true,
+                  text: 'Release Year'
+                }
             },
             y: {
                 type: 'linear',
-                position: 'left'
+                position: 'left',
+                title: {
+                  display: true,
+                  text: 'Number of Streams'
+                }
             }
         },
         responsive: true,
@@ -79,7 +95,14 @@ var myChart = new Chart(ctx, {
             },
             title: {
                 display: true,
-                text: 'When were the top streamed songs of 2023 released?'
+                text: 'When were the top streamed songs of 2023 released?',
+                font: {
+                    size: 18
+                }
+            },
+            subtitle: {
+                display: true,
+                text: 'This chart shows the release year for the 50 songs that received the most Spotify streams in 2023. While there are some outliers, the most popular songs were mainly from the mid-2010s.'
             }
         }
     }

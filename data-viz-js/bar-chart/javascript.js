@@ -17,19 +17,29 @@ var myChart = new Chart(ctx, {
         plugins: {
             title: {
                 display: true,
-                text: 'Top Releases of 2023 by Month',
+                text: 'Songs released later in the year are less likely to reach the top of the streaming list',
                 font: {
                     size: 18
                 }
             },
             subtitle: {
                 display: true,
-                text: 'This chart looks at how late in the year a song can be released and still make it onto the list of top streamed songs.'
+                text: 'This chart looks at how many songs that were released in 2023 made it onto that year\'s list of top Spotify streams. No songs released past July made the list, so only the first seven months are present.'
             }
         },
         scales: {
             y: {
-                beginAtZero: true
+              beginAtZero: true,
+              title: {
+                display: true,
+                text: 'Number of Songs Released'
+              }
+            },
+            x: {
+              title: {
+                display: true,
+                text: 'Release Month'
+              }
             }
         },
     },
