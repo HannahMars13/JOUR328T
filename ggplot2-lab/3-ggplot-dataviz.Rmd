@@ -3,8 +3,6 @@ title: "GGPlot for Data Visualization"
 author: "Adam Marton" 
 ---
 
-
-
 #### Install new packages
 
 ```{r}
@@ -197,17 +195,44 @@ spotify_tree_graph = ggsave(file="tree.png")
 ```
 
 
-
-
 Time to work on your own! Use the spotify data and the code we reviewed above to create the following three graphics:
 
 1.Make a bar chart of the top 10 tracks, similar to the chart we made above. Instead of the track name, show the artist name. Write new headline and chatter and change the color and theme. /OR/ Think of your own idea for a bar chart using the spotify data.
+```{r}
+spotify_bar_chart_data %>% ggplot(aes(x = reorder(artist.s._name,desc(streams)), y = streams)) +
+  geom_col(fill="#5D3FD3")+
+  scale_y_continuous(labels = scales::label_number(scale = 1e-9, suffix = "B")) +
+  scale_x_discrete(guide = guide_axis(angle = 45)) +
+  labs(title = "Artists with the most streamed songs of 2023", subtitle = "The Weeknd and Ed Sheeran dominated Spotify's 2023 streams, with their respective songs\n \"Blinding Lights\" and \"Shape of You\" both reaching over 3 billion streams.", caption = "Source: Spotify via Kaggle \n by Hannah Marszalek")+
+  theme_classic()+
+  theme(axis.title = element_blank())
+```
 
 2. Make a scatterplot simiar to the chart we made above. Instead of energy and danceability, choose two different metrics from the data to compare. Write new text and update the colors and theme.
+```{r}
+spotify_scatterplot_data <- spotify_data %>% top_n(200, streams)
+
+ggplot(spotify_scatterplot_data, aes(in_spotify_playlists, streams, color = mode)) +
+  geom_point(alpha = .5, aes(size = bpm))+
+  scale_y_continuous(labels = scales::label_number(scale = 1e-9, suffix = "B")) +
+  theme_minimal() +
+  scale_color_brewer(palette="Pastel1") +
+  labs(title = "How many playlists do the most streamed songs appear in?", subtitle = "This chart shows the 200 most streamed songs on Spotify for 2023 and how many playlists each\nsong has been added to by Spotify users.", caption = "Source: Spotify via Kaggle \n by Hannah Marszalek", x = "Number of Spotify Playlist Appearances", y = "Number of Streams", size = "BPM", color = "Mode")
+```
 
 3. Make another chart using this data, anything you like.
+```{r}
+second_spotify_tree <- spotify_data %>% 
+  group_by(released_year) %>%
+  summarize(count_by_year = n())
 
+ggplot(second_spotify_tree, aes(area = count_by_year, fill = released_year, label = count_by_year)) +
+  geom_treemap() +
+      theme_minimal() +
+   labs(title = "Most of Spotify's top streamed songs of 2023 were recent releases", subtitle = "This treemap shows the release years for all of the top streamed songs of 2023. While\nyears go back as far as 1930, the majority of the top songs were released in the past\n10 years.", caption = "Source: Spotify via Kaggle \n by Hannah Marszalek", fill = "Release Year") +
+  geom_treemap_text(colour = "white",
+                    place = "centre",
+                    size = 15)
+```
 
 When finished, save and submit this R Markdown file to ELMS.
-
-
