@@ -9,17 +9,21 @@ var ctx = document.getElementById('myChart').getContext('2d');
               'Shopping',
               'Sleeping',
               'Eating and drinking',
-              'Seeing friends'
+              'Seeing friends',
+              'TV and Radio'
             ],
             datasets: [{
               label: 'Minutes per day',
-              data: [315, 25, 103, 20, 542, 100, 23],
+              data: [315, 25, 103, 20, 542, 100, 23, 127],
               backgroundColor: [
-                'rgb(255, 99, 132)',
-                'rgb(75, 192, 192)',
-                'rgb(255, 205, 86)',
-                'rgb(201, 203, 207)',
-                'rgb(54, 162, 235)'
+                '#433141',
+                '#594157',
+                '#665780',
+                '#726DA8',
+                '#7D8CC4',
+                '#8FAFD0',
+                '#A0D2DB',
+                '#BEE7E8'
               ]
             }]
           },
@@ -32,6 +36,10 @@ var ctx = document.getElementById('myChart').getContext('2d');
               title: {
                 display: true,
                 text: 'How to people in China use their time?'
+              },
+              subtitle: {
+                display: true,
+                text: 'This chart shows a breakdown of how people in China spend their days by minutes. Sleeping and paid work take up an overwhelming majority of the time.'
               }
             }
           }
