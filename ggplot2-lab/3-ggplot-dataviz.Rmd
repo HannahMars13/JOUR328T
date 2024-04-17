@@ -215,9 +215,9 @@ spotify_scatterplot_data <- spotify_data %>% top_n(200, streams)
 ggplot(spotify_scatterplot_data, aes(in_spotify_playlists, streams, color = mode)) +
   geom_point(alpha = .5, aes(size = bpm))+
   scale_y_continuous(labels = scales::label_number(scale = 1e-9, suffix = "B")) +
-  theme_minimal() +
+  theme_bw() +
   scale_color_brewer(palette="Pastel1") +
-  labs(title = "How many playlists do the most streamed songs appear in?", subtitle = "This chart shows the 200 most streamed songs on Spotify for 2023 and how many playlists each\nsong has been added to by Spotify users.", caption = "Source: Spotify via Kaggle \n by Hannah Marszalek", x = "Number of Spotify Playlist Appearances", y = "Number of Streams", size = "BPM", color = "Mode")
+  labs(title = "How many playlists do the most streamed songs appear in?", subtitle = "This chart shows the 200 most streamed songs on Spotify for 2023 and how many playlists each\nsong has been added to by Spotify users. It also shows the BPM of the songs and whether they\nare major or minor.", caption = "Source: Spotify via Kaggle \n by Hannah Marszalek", x = "Number of Spotify Playlist Appearances", y = "Number of Streams", size = "BPM", color = "Mode")
 ```
 
 3. Make another chart using this data, anything you like.
